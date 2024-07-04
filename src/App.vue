@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="content-main">
       <HomeBar/>
+      <RouterView/>
   </div>
 </template>
 
@@ -9,7 +10,7 @@
 import HomeBar from './components/HomeBar.vue';
 export default {
   components: {
-    HomeBar
+    HomeBar,
   },
 
 }
