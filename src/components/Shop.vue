@@ -1,22 +1,36 @@
 <template>
-    <div class="container">
-       <div class="row">
-           <div class="catalog col-md-9">   
-                <div class="filters container">
-                    <div class="row">
-                        <div class="col-6">
-                        
-                        </div>
-                        <div class="col-6">
-                           
-                        </div>
-                    </div>
-                </div>
-                <div class="vinhos">
-                    <CardVinhos/>
-                </div>
-           </div>
-       </div>
+    <div class="container mt-2">
+      <div class="row d-flex justify-content-between">
+         <div class="col-3 mx-3">
+               Total
+         </div>
+         <div class="col-7 mx-3">
+               Filtros de ordem...
+         </div>
+      </div>
+      <div class="row d-flex justify-content-start">
+         <div class="col-lg-4 col-md-6 col-12">
+            <CardVinhos/>
+         </div>
+         <div class="col-lg-4 col-md-6 col-12">
+            <CardVinhos/>
+         </div>
+         <div class="col-lg-4 col-md-6 col-12">
+            <CardVinhos/>
+         </div>
+         <div class="col-lg-4 col-md-6 col-12">
+            <CardVinhos/>
+         </div>
+         <div class="col-lg-4 col-md-6 col-12">
+            <CardVinhos/>
+         </div>
+         <div class="col-lg-4 col-md-6 col-12">
+            <CardVinhos/>
+         </div>
+         <div class="col-lg-4 col-md-6 col-12">
+            <CardVinhos/>
+         </div>
+      </div>
     </div>   
 </template>
 <style scoped>
@@ -51,14 +65,23 @@ export default {
  },
  data() {
    return {
-    
+      vinhos: [],
+      error: '',
    };
  },
- created() {
- 
- },
+   created() {
+    this.fetchVinhos();
+  },
  methods: {
-   
+   async fetchVinhos() {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/vinhos');
+        this.vinhos = response.data;
+        console.log(this.vinhos);
+      } catch (error) {
+        this.error = 'Erro ao buscar os vinho: ' + error.message;
+      }
+    },
  }
 };
 </script>

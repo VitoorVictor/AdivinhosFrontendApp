@@ -1,51 +1,107 @@
 <template>
-     <div class="container">
-        <div class="row">
-            <div class="filters col">
-                <div class="tipos">
+  <div class="container">
+      <div class="row">
+          <div class="filters col d-none d-md-flex flex-column">
+              <div class="tipos">
                   <div class="filters-title tipos">
-                      <button @click="hiddenFilters('tipos')" class="btn"><h4>TIPOS</h4></button>
+                      <button @click="hiddenFilters('tipos')" class="btn">
+                          <h4>TIPOS</h4></button>
                   </div>
                   <div class="filters-selects mt-2" v-if="filtersVisibility.tipos">
                       <ul class="list">
-                          <li  v-for="tipo in tipos" :key="tipo.id" class="list-group-item d-flex">
+                          <li v-for="tipo in tipos" :key="tipo.id" class="list-group-item d-flex">
                               <input type="checkbox" class="form-check-input p-2" :value="tipo.id">
                               <p>{{ tipo.nome_tipo }}</p>
                           </li>
                       </ul>
                   </div>
-                </div>
-                <div class="docuras">
+              </div>
+              <div class="docuras">
                   <div class="filters-title">
-                    <button @click="hiddenFilters('docuras')" class="btn"><h4>DOÇURAS</h4></button>
-                </div>
-                <div class="filters-selects mt-2" v-if="filtersVisibility.docuras">
-                    <ul class="list">
-                        <li  v-for="docura in docuras" :key="docura.id" class="list-group-item d-flex">
-                            <input type="checkbox" class="form-check-input p-2" :value="docura.id">
-                            <p>{{ docura.docura }}</p>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-                <div class="paises">
+                      <button @click="hiddenFilters('docuras')" class="btn">
+                          <h4>DOÇURAS</h4></button>
+                  </div>
+                  <div class="filters-selects mt-2" v-if="filtersVisibility.docuras">
+                      <ul class="list">
+                          <li v-for="docura in docuras" :key="docura.id" class="list-group-item d-flex">
+                              <input type="checkbox" class="form-check-input p-2" :value="docura.id">
+                              <p>{{ docura.docura }}</p>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="paises">
                   <div class="filters-title">
-                    <button @click="hiddenFilters('paises')" class="btn"><h4>PAÍSES</h4></button>
-                </div>
-                <div class="filters-selects mt-2" v-if="filtersVisibility.paises">
-                    <ul class="list">
-                        <li  v-for="pais in paises" :key="pais.id" class="list-group-item d-flex">
-                            <input type="checkbox" class="form-check-input p-2" :value="pais.id">
-                            <p>{{ pais.nome }}</p>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
-        </div>
-     </div>   
+                      <button @click="hiddenFilters('paises')" class="btn">
+                          <h4>PAÍSES</h4></button>
+                  </div>
+                  <div class="filters-selects mt-2" v-if="filtersVisibility.paises">
+                      <ul class="list">
+                          <li v-for="pais in paises" :key="pais.id" class="list-group-item d-flex">
+                              <input type="checkbox" class="form-check-input p-2" :value="pais.id">
+                              <p>{{ pais.nome }}</p>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="offcanvas offcanvas-top" tabindex="-1" id="filtersOffcanvas" aria-labelledby="filtersOffcanvasLabel">
+              <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="filtersOffcanvasLabel">Filtros</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                  <div class="tipos">
+                      <div class="filters-title tipos">
+                          <button @click="hiddenFilters('tipos')" class="btn">
+                              <h4>TIPOS</h4></button>
+                      </div>
+                      <div class="filters-selects mt-2" v-if="filtersVisibility.tipos">
+                          <ul class="list">
+                              <li v-for="tipo in tipos" :key="tipo.id" class="list-group-item d-flex">
+                                  <input type="checkbox" class="form-check-input p-2" :value="tipo.id">
+                                  <p>{{ tipo.nome_tipo }}</p>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="docuras">
+                      <div class="filters-title">
+                          <button @click="hiddenFilters('docuras')" class="btn">
+                              <h4>DOÇURAS</h4></button>
+                      </div>
+                      <div class="filters-selects mt-2" v-if="filtersVisibility.docuras">
+                          <ul class="list">
+                              <li v-for="docura in docuras" :key="docura.id" class="list-group-item d-flex">
+                                  <input type="checkbox" class="form-check-input p-2" :value="docura.id">
+                                  <p>{{ docura.docura }}</p>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="paises">
+                      <div class="filters-title">
+                          <button @click="hiddenFilters('paises')" class="btn">
+                              <h4>PAÍSES</h4></button>
+                      </div>
+                      <div class="filters-selects mt-2" v-if="filtersVisibility.paises">
+                          <ul class="list">
+                              <li v-for="pais in paises" :key="pais.id" class="list-group-item d-flex">
+                                  <input type="checkbox" class="form-check-input p-2" :value="pais.id">
+                                  <p>{{ pais.nome }}</p>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </template>
 <style scoped>
+.list-group-item p{
+  font-size: 15px;
+}
 .btn h4{
     font-family: "Baskervville SC", serif;
     font-style: normal;
