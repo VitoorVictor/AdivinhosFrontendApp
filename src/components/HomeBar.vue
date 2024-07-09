@@ -9,9 +9,9 @@
       </div>
       <div class="col-md-8 d-flex justify-content-center align-items-center container">
         <div class="col-md-8 d-flex justify-content-evenly align-items-center">
-          <a class="btn btn-rotas text-bordo" href="">Vinhos</a>
-          <a class="btn btn-rotas text-bordo" href="">Kits</a>
-          <a class="btn btn-rotas text-bordo" href="">Mais Vendidos</a>
+          <router-link class="btn btn-rotas text-bordo" to="/">Vinhos</router-link>
+          <router-link class="btn btn-rotas text-bordo" to="">Kits</router-link>
+          <router-link class="btn btn-rotas text-bordo" to="">Mais Vendidos</router-link>
         </div>
         <form class="form-search col-md-4">
           <div class="container-search">
@@ -48,9 +48,9 @@
             </div>
             <div class="offcanvas-body">
               <div class="d-flex  flex-column align-items-start">
-                <a class="btn btn-rotas text-bordo" href="">Vinhos</a>
-                <a class="btn btn-rotas text-bordo" href="">Kits</a>
-                <a class="btn btn-rotas text-bordo" href="">Mais Vendidos</a>
+                <router-link class="btn btn-rotas text-bordo" to="/">Vinhos</router-link>
+                <router-link class="btn btn-rotas text-bordo" to="">Kits</router-link>
+                <router-link class="btn btn-rotas text-bordo" to="">Mais Vendidos</router-link>
               </div>
             </div>
           </div>
@@ -64,10 +64,6 @@
           </div>
         </form>
         <div class="d-flex justify-content-center align-items-center">
-          <a href="" v-if="logado"  class="profile">
-            <i class="bi bi-person-circle text-bordo size-padrao-icones"></i>
-          </a>
-          <a href="" v-else class="logar btn btn-rotas text-bordo">Entrar</a>
           <a href="" class="carrinho">
             <i class="bi bi-bag-fill text-bordo size-padrao-icones"></i>
           </a>

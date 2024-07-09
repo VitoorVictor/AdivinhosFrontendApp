@@ -1,7 +1,7 @@
 <template>
   <div class="container">
       <div class="row">
-          <div class="filters col d-none d-md-flex flex-column">
+          <div class="filters col d-none d-md-flex flex-column py-2">
               <div class="tipos">
                   <div class="filters-title tipos">
                       <button @click="hiddenFilters('tipos')" class="btn">

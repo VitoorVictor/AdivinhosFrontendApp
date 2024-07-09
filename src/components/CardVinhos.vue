@@ -1,30 +1,30 @@
 <template>
-<div class="container mb-4">
-    <div class="row d-flex justify-content-between">
-        <div class="col-2 d-flex flex-column mt-2 align-items-center">
-            <i class="bi bi-star-fill text-warning"></i>
-            <i class="bi bi-star-fill text-warning"></i>
-            <i class="bi bi-star text-warning"></i>
-            <i class="bi bi-star text-warning"></i>
-            <i class="bi bi-star text-warning"></i>
+    <div class="container mb-4">
+        <div class="row d-flex justify-content-between">
+            <div class="col-2 d-flex flex-column mt-2 align-items-center">
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star text-warning"></i>
+                <i class="bi bi-star text-warning"></i>
+                <i class="bi bi-star text-warning"></i>
+            </div>
+            <div class="col-7  d-flex flex-column mt-5 align-items-center">
+                <img :src="require('/public/img/vinho-teste.png')"  class="img">
+            </div>
+            <div class="col-2 mt-2 d-flex justify-content-center">
+                <i class="bi bi-heart text-danger"></i>
+                <i class="bi bi-heart-fill  hidden text-danger"></i>
+            </div>
         </div>
-        <div class="col-7  d-flex flex-column mt-5 align-items-center">
-            <img :src="require('/public/img/vinho-teste.png')"  class="img">
-        </div>
-        <div class="col-2 mt-2 d-flex justify-content-center">
-            <i class="bi bi-heart text-danger"></i>
-            <i class="bi bi-heart-fill  hidden text-danger"></i>
+        <div class="row d-flex flex-column align-items-center">
+            <div class="col nome-vinho text-center mt-3 text-bordo ">{{vinho.nome}}</div>
+            <div class="col info-vinho text-center text-secondary">Safra de {{vinho.safra}} - {{vinho.tipo.nome_tipo}} - {{vinho.docura.docura}} </div>
+            <div class="col text-center text-warning">{{vinho.valor}}</div>
+            <div class="col d-flex justify-content-center mb-4 mt-2">
+                <button class="btn btn-dark">Adicionar ao Carrinho</button>
+            </div>
         </div>
     </div>
-    <div class="row d-flex flex-column align-items-center">
-        <div class="col nome-vinho text-center mt-3 text-bordo ">Nome do Vinho</div>
-        <div class="col info-vinho text-center text-secondary">Sub Infos do Vinho</div>
-        <div class="col text-center text-warning">R$199,00</div>
-        <div class="col d-flex justify-content-center mb-4 mt-2">
-            <button class="btn btn-dark">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
 </template>
 <script>
 export default {
@@ -41,9 +41,14 @@ export default {
             const heartFill = document.querySelector('.bi-heart-fill');
             heart.classList.add('hidden');
             heartFill.classList.remove('hidden');
-        }  
+        },
     },
-
+    props: {
+        vinho: {
+            type: Object,
+            required: true,
+            }
+    },
 }
 </script>
 <style scoped>

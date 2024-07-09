@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
           <ShopFilters class="col-3"/>
-          <Shop class="col-md-9 col-12"/>
+          <Shop class="col-md-9 col-12 Shop"/>
         </div>
       </div>
   </div>
@@ -18,7 +18,7 @@
 
 <script>
 import ShopFilters from '@/components/ShopFilters.vue'
-import Shop from '../components/Shop.vue'
+import Shop from '@/components/Shop.vue'
 
 
 export default {
@@ -31,14 +31,10 @@ export default {
 
 }
 </script>
-<style>
+<style scoped>
 .text-bordo{
     color: #400000;
   }
-.content-main{
-  background-color: rgb(240, 240, 240);
-  min-height: 100em;
-}
 .title-shop{
   font-family: "Baskervville SC", serif;
   font-style: normal;
